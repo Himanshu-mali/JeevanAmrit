@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewman (Giantia) - Medical E-Commerce</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 0.8s ease-out;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+            animation: pulse 2s infinite;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('hero-bg.jpg') no-repeat center center/cover;
+            position: relative;
+            color: white;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInDown 1s ease-out;
+        }
+        
+        .hero h2 {
+            font-size: 5rem;
+            margin-bottom: 0.5rem;
+            color: #6b73ff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 1s ease-out;
+        }
+        
+        .hero h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #6b73ff;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1.2s ease-out;
+            box-shadow: 0 4px 15px rgba(107, 115, 255, 0.4);
+        }
+        
+        .cta-button:hover {
+            background-color: #4d56ff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(107, 115, 255, 0.6);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #333;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #6b73ff;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #6b73ff;
+            margin-bottom: 1rem;
+        }
+        
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #6b73ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #4d56ff;
+        }
+        
+        /* Chatbot Section */
+        .chatbot-section {
+            padding: 4rem 2rem;
+            background-color:rgba(245, 247, 250, 0.62);
+        }
+        
+        .chatbot-container {
+            max-width: 95vw;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .chatbot-model {
+            flex: 1;
+            position: fixed;
+            background-color:rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .model-placeholder {
+            width: 80%;
+            height: 80%;
+            background-color: #ddd;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .chatbot-interface {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .feature-btn {
+            padding: 8px 16px;
+            background-color:rgb(218, 220, 248);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-btn.active {
+            background-color: #6b73ff;
+            color: white;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .user {
+            align-self: flex-end;
+            background-color: #6b73ff;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .bot {
+            align-self: flex-start;
+            background-color: #f0f2f5;
+            color: #333;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+        
+        .chat-input button {
+            padding: 12px 20px;
+            background-color: #6b73ff;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-input button:hover {
+            background-color: #4d56ff;
+        }
+        
+        .voice-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .voice-btn {
+            padding: 10px 20px;
+            background-color: #6b73ff;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .voice-btn:hover {
+            background-color: #4d56ff;
+        }
+        
+        .voice-btn.listening {
+            background-color: #ff4d4d;
+            animation: pulse 1.5s infinite;
+        }
+        
+        /* Fall Detector Section */
+        .fall-detector {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .fall-detector h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin: 0 10px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #6b73ff;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        .warning {
+            color: #ff4d4d;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        /* Blood Donation Section */
+        .blood-donation {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .blood-search {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .blood-search select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .blood-search button {
+            padding: 10px 20px;
+            background-color: #6b73ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .donor-map {
+            height: 300px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .donor-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #ff4d4d;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulseDot 2s infinite;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes pulseDot {
+            0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); }
+            70% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
+            100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 3.5rem;
+            }
+            
+            .hero h3 {
+                font-size: 1.5rem;
+            }
+            
+            .chatbot-container {
+                flex-direction: column;
+            }
+            
+            .chatbot-model {
+                min-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+            
+            <!-- Continue with more products... -->
+     
+
+    <section id="chatbot" class="chatbot-section">
+        <h2 class="section-title">AI Health Companion</h2>
+        <div class="chatbot-container">
+            <div class="chatbot-model">
+                <div class="model-placeholder">
+
+                    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.90/build/spline-viewer.js"></script>
+                    <spline-viewer url="https://prod.spline.design/TQFF1fBwsgLiql4V/scene.splinecode"></spline-viewer>
+
+                </div>
+            </div>
+            <div class="chatbot-interface">
+                <div class="feature-selector">
+                    <button class="feature-btn active" data-feature="general">General Health</button>
+                    <button class="feature-btn" data-feature="mental">Mental Health</button>
+                    <button class="feature-btn" data-feature="disease">Disease Predictor</button>
+                    <button class="feature-btn" data-feature="medicine">Medicine Recommender</button>
+                    <button class="feature-btn" data-feature="blood">Blood Donation</button>
+                    <button class="feature-btn" data-feature="fall">Fall Detection</button>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot">
+                        Hello! I'm your AI Health Companion. How can I assist you today?
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Type your health question...">
+                    <button id="send-btn">Send</button>
+                </div>
+                
+                <div class="voice-controls">
+                    <button class="voice-btn" id="voice-btn">
+                        <span>Voice Input</span>
+                    </button>
+                </div>
+                
+                <div class="blood-donation" id="blood-donation" style="display: none;">
+                    <h3>Find Blood Donors</h3>
+                    <div class="blood-search">
+                        <select id="blood-type">
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                        <button id="search-blood">Search</button>
+                    </div>
+                    <div class="donor-map" id="donor-map"></div>
+                </div>
+                
+                <div class="fall-detector" id="fall-detector" style="display: none;">
+                    <h3>Fall Detection System</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="fall-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <p class="warning" id="fall-warning"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Chatbot functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureBtns = document.querySelectorAll('.feature-btn');
+            const chatMessages = document.getElementById('chat-messages');
+            const userInput = document.getElementById('user-input');
+            const sendBtn = document.getElementById('send-btn');
+            const voiceBtn = document.getElementById('voice-btn');
+            const bloodDonation = document.getElementById('blood-donation');
+            const fallDetector = document.getElementById('fall-detector');
+            const fallToggle = document.getElementById('fall-toggle');
+            const fallWarning = document.getElementById('fall-warning');
+            const donorMap = document.getElementById('donor-map');
+            const searchBlood = document.getElementById('search-blood');
+            
+            let currentFeature = 'general';
+            let isListening = false;
+            
+            // Feature selection
+            featureBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    featureBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFeature = this.dataset.feature;
+                    
+                    // Show/hide special feature panels
+                    bloodDonation.style.display = currentFeature === 'blood' ? 'block' : 'none';
+                    fallDetector.style.display = currentFeature === 'fall' ? 'block' : 'none';
+                    
+                    // Add welcome message for the feature
+                    addBotMessage(getFeatureWelcomeMessage(currentFeature));
+                });
+            });
+            
+            // Send message
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (message === '') return;
+                
+                addUserMessage(message);
+                userInput.value = '';
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    const response = getBotResponse(currentFeature, message);
+                    addBotMessage(response);
+                    
+                    // Special cases
+                    if (currentFeature === 'blood' && message.match(/blood|donor|donate/i)) {
+                        bloodDonation.style.display = 'block';
+                    }
+                }, 800);
+            }
+            
+            // Voice input
+            voiceBtn.addEventListener('click', function() {
+                isListening = !isListening;
+                this.classList.toggle('listening');
+                
+                if (isListening) {
+                    this.innerHTML = '<span>Listening...</span>';
+                    // Simulate voice recognition
+                    setTimeout(() => {
+                        const voiceMessages = [
+                            "I have a headache",
+                            "What medicine should I take for fever?",
+                            "Are there any disease outbreaks?",
+                            "I need A positive blood donors",
+                            "I'm feeling depressed"
+                        ];
+                        const randomMessage = voiceMessages[Math.floor(Math.random() * voiceMessages.length)];
+                        userInput.value = randomMessage;
+                        this.innerHTML = '<span>Voice Input</span>';
+                        this.classList.remove('listening');
+                        isListening = false;
+                        sendMessage();
+                    }, 2000);
+                } else {
+                    this.innerHTML = '<span>Voice Input</span>';
+                }
+            });
+            
+            // Fall detection toggle
+            fallToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    fallWarning.textContent = "Warning: No sensor permissions granted. Please enable in settings.";
+                } else {
+                    fallWarning.textContent = "";
+                }
+            });
+            
+            // Blood donor search
+            searchBlood.addEventListener('click', function() {
+                const bloodType = document.getElementById('blood-type').value;
+                addBotMessage(`Searching for ${bloodType} donors in your area...`);
+                
+                // Clear previous dots
+                donorMap.innerHTML = '';
+                
+                // Create random donor dots
+                for (let i = 0; i < 8; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'donor-dot';
+                    dot.style.left = `${10 + Math.random() * 80}%`;
+                    dot.style.top = `${10 + Math.random() * 80}%`;
+                    donorMap.appendChild(dot);
+                }
+                
+                setTimeout(() => {
+                    addBotMessage(`Found 5 ${bloodType} donors within 5km radius. Contact details sent to your registered phone.`);
+                }, 1500);
+            });
+            
+            // Enter key to send
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') sendMessage();
+            });
+            
+            // Send button
+            sendBtn.addEventListener('click', sendMessage);
+            
+            // Helper functions
+            function addUserMessage(text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message user';
+                messageDiv.textContent = text;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            function addBotMessage(text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message bot';
+                messageDiv.textContent = text;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            function getFeatureWelcomeMessage(feature) {
+                const messages = {
+                    general: "I'm your general health assistant. Ask me anything about health or our products.",
+                    mental: "I can help assess your mental well-being. Tell me how you've been feeling.",
+                    disease: "I can provide information about current disease outbreaks and predictions.",
+                    medicine: "I can recommend medicines for common ailments. What symptoms do you have?",
+                    blood: "I can help you find blood donors in your area. What blood type do you need?",
+                    fall: "Fall detection system ready. Enable the toggle to activate monitoring."
+                };
+                return messages[feature] || "How can I help you today?";
+            }
+            
+            function getBotResponse(feature, message) {
+                message = message.toLowerCase();
+                
+                // General responses
+                if (feature === 'general') {
+                    if (message.includes('hi') || message.includes('hello')) {
+                        return "Hello! How can I assist you with your health today?";
+                    } else if (message.includes('product') || message.includes('buy')) {
+                        return "We offer a wide range of medical products. Check our products section or ask about specific items.";
+                    } else {
+                        return "I'm here to help with your health questions. For specific assistance, try one of our specialized features.";
+                    }
+                }
+                
+                // Mental health responses
+                else if (feature === 'mental') {
+                    if (message.includes('depress') || message.includes('sad') || message.includes('anxious')) {
+                        return "I understand you're feeling low. Based on your input, I detect mild signs of depression. Try these coping strategies: 1) Practice deep breathing 2) Go for a walk 3) Talk to a friend. If symptoms persist, please consult a professional.";
+                    } else if (message.includes('stress') || message.includes('overwhelm')) {
+                        return "Stress is common but manageable. Try the 4-7-8 breathing technique: Inhale for 4s, hold for 7s, exhale for 8s. Repeat 4 times.";
+                    } else {
+                        return "Based on our analysis, you show no significant signs of depression or anxiety. Maintain your well-being with regular exercise and social connections.";
+                    }
+                }
+                
+                // Disease predictor
+                else if (feature === 'disease') {
+                    if (message.includes('covid') || message.includes('corona')) {
+                        return "COVID-19 Update: Cases are rising in some regions. Symptoms: fever, cough, fatigue. Prevention: wear masks, wash hands, get vaccinated. Current variants respond to Paxlovid treatment.";
+                    } else if (message.includes('flu') || message.includes('influenza')) {
+                        return "Seasonal flu activity is moderate. Symptoms include fever, chills, muscle aches. Prevention: annual flu vaccine, good hygiene. Recommended treatment: oseltamivir for high-risk patients.";
+                    } else if (message.includes('dengue')) {
+                        return "Dengue alert in tropical regions. Symptoms: high fever, severe headache, pain behind eyes. Prevent mosquito bites. No specific treatment - maintain hydration.";
+                    } else {
+                        return "Current health alerts: 1) COVID-19 variants circulating 2) Seasonal flu active 3) Dengue in tropical areas. Ask about specific diseases for more details.";
+                    }
+                }
+                
+                // Medicine recommender
+                else if (feature === 'medicine') {
+                    if (message.includes('headache')) {
+                        return "For mild headaches: acetaminophen (Tylenol) or ibuprofen (Advil). For migraines: consider sumatriptan. If persistent, consult a doctor.";
+                    } else if (message.includes('fever')) {
+                        return "For fever: acetaminophen every 4-6 hours. Stay hydrated. If fever >103°F or lasts >3 days, seek medical attention.";
+                    } else if (message.includes('cold') || message.includes('cough')) {
+                        return "For cold: rest, fluids. Decongestants like pseudoephedrine. Cough suppressant dextromethorphan. Antihistamines for runny nose.";
+                    } else if (message.includes('allerg')) {
+                        return "For allergies: loratadine (Claritin) or cetirizine (Zyrtec). Nasal corticosteroids for nasal symptoms. Severe reactions may need epinephrine.";
+                    } else {
+                        return "I can recommend medicines for common conditions like headaches, fever, cold, allergies. Describe your symptoms for specific advice.";
+                    }
+                }
+                
+                // Blood donation
+                else if (feature === 'blood') {
+                    if (message.match(/A[+-]|B[+-]|AB[+-]|O[+-]/)) {
+                        const bloodType = message.match(/(A[+-]|B[+-]|AB[+-]|O[+-])/)[0];
+                        return `Searching for ${bloodType} donors in your area... (Use the search panel above for detailed search)`;
+                    } else {
+                        return "Please specify the blood type you need (e.g., 'A positive' or 'O negative').";
+                    }
+                }
+                
+                // Fall detection
+                else if (feature === 'fall') {
+                    return "Fall detection system is ready. Enable the toggle switch to activate monitoring. Ensure location and motion permissions are granted.";
+                }
+                
+                // Default response
+                return "I'm not sure how to answer that. Can you try asking differently or select a more specific feature?";
+            }
+        });
+    </script>
+</body>
+</html>

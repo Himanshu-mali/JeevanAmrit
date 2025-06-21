@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JeevanAmrit</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand me-4" href="#">
+                <i class="fas fa-spa me-2 text-success"></i>JeevanAmrit
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://b5t11mg1.dora.run/">Medicines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blur slider/index.html">Founders</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="chatbot.html">Blood Donation</a></li>
+                            <li><a class="dropdown-item" href="chatbot.html">Fall Detection</a></li>
+                            <li><a class="dropdown-item" href="#">Medicine Recommender</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button id="voice-command-btn" class="btn btn-light me-2">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <a href="cart.html" class="btn btn-light me-2 position-relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </a>
+                    <a href="login.html" class="btn btn-outline-light">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Your Intelligent Health Companion</h1>
+                    <p class="lead mb-4">AI-powered solutions for all your healthcare needs - from medicine delivery to mental health support.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="https://b5t11mg1.dora.run/"" class="btn btn-light btn-lg px-4">
+                            <i class="fas fa-pills me-2"></i>Shop Medicines
+                        </a>
+                        <a href="health-companion.html" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-robot me-2"></i>Talk to Health AI
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <img src="222.jpg" alt="Healthcare AI" class="img-fluid rounded shadow move">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Our AI-Powered Features</h2>
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-brain fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Mental Health Companion</h5>
+                            <p class="card-text">AI chatbot detects signs of depression/anxiety and suggests coping mechanisms.</p>
+                            <a href="health-companion.html" class="btn btn-sm btn-outline-primary">Try Now</a>
+                            <button class="btn btn-sm btn-outline-secondary ms-2" onclick="openChatbot()">Chatbot</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-virus fa-3x text-success"></i>
+                            </div>
+                            <h5 class="card-title">Disease Predictor</h5>
+                            <p class="card-text">Predicts disease outbreaks in your area using AI analysis.</p>
+                            <a href="disease-predictor.html" class="btn btn-sm btn-outline-success">Learn More</a>
+                            <button class="btn btn-sm btn-outline-secondary ms-2" onclick="openChatbot()">Chatbot</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-pills fa-3x text-info"></i>
+                            </div>
+                            <h5 class="card-title">Medicine Recommender</h5>
+                            <p class="card-text">Personalized medicine suggestions based on your health profile.</p>
+                            <a href="medicine-recommender.html" class="btn btn-sm btn-outline-info">Get Recommendations</a>
+                            <button class="btn btn-sm btn-outline-secondary ms-2" onclick="openChatbot()">Chatbot</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-heart fa-3x text-danger"></i>
+                            </div>
+                            <h5 class="card-title">Blood Donation</h5>
+                            <p class="card-text">Real-time blood donor matching with geolocation.</p>
+                            <a href="chatbot.html" class="btn btn-sm btn-outline-danger">Find Donors</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Emergency Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-danger h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-exclamation-triangle fa-2x text-danger me-3"></i>
+                                <h3 class="mb-0">Emergency Features</h3>
+                            </div>
+                            <p>Our advanced fall detection system can automatically alert your emergency contacts if a fall is detected.</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button class="btn btn-danger" onclick="activateFallDetection()">
+                                    <i class="fas fa-walking me-2"></i>Activate Fall Detection
+                                </button>
+                                <button class="btn btn-outline-danger" onclick="findHospitals()">
+                                    <i class="fas fa-hospital me-2"></i>Nearby Hospitals
+                                </button>
+                                <button class="btn btn-outline-dark" onclick="emergencyCall()">
+                                    <i class="fas fa-phone-alt me-2"></i>Emergency Call
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-primary h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-robot fa-2x text-primary me-3"></i>
+                                <h3 class="mb-0">Health AI Companion</h3>
+                            </div>
+                            <p>Get instant answers to your health questions with our AI-powered assistant available 24/7.</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Ask a health question...">
+                                <button class="btn btn-primary" onclick="openChatbot()">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                                <button class="btn btn-outline-secondary" onclick="startVoiceCommand()">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                                <button class="btn btn-outline-secondary ms-2" onclick="openChatbot()">Chatbot</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medicine Showcase -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Popular Medicines</h2>
+                <a href="https://b5t11mg1.dora.run/" class="btn btn-outline-primary">View All Medicines</a>
+            </div>
+            <div class="row g-4">
+                <!-- Medicine 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card medicine-card h-100">
+                        <div class="badge bg-danger position-absolute" style="top: 10px; right: 10px">-15%</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Paracetamol 500mg</h5>
+                            <p class="card-text text-muted">Pain and fever relief</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="text-danger fw-bold">$4.25</span>
+                                    <span class="text-decoration-line-through text-muted ms-2">$5.00</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Medicine 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card medicine-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ibuprofen 200mg</h5>
+                            <p class="card-text text-muted">Anti-inflammatory pain relief</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">$6.99</span>
+                                <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Medicine 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card medicine-card h-100">
+                        <div class="badge bg-success position-absolute" style="top: 10px; right: 10px">New</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Omeprazole 20mg</h5>
+                            <p class="card-text text-muted">Acid reflux treatment</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">$12.50</span>
+                                <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Medicine 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card medicine-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Cetirizine 10mg</h5>
+                            <p class="card-text text-muted">Antihistamine for allergies</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">$8.75</span>
+                                <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disease Alert Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="card border-warning">
+                <div class="card-header bg-warning text-dark">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-exclamation-circle fa-2x me-3"></i>
+                        <h3 class="mb-0">Disease Outbreak Alert</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="alert alert-warning mb-4">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-virus fa-2x me-3"></i>
+                                    <div>
+                                        <h5>Increased Flu Activity</h5>
+                                        <p class="mb-0">Your region is experiencing moderate flu activity. Consider vaccination.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-warning" onclick="viewOutbreakDetails()">
+                                <i class="fas fa-map-marked-alt me-2"></i>View Outbreak Map
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="alert alert-light mb-4">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-shield-virus fa-2x me-3"></i>
+                                    <div>
+                                        <h5>Prevention Tips</h5>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Wash hands frequently</li>
+                                            <li>Avoid close contact with sick individuals</li>
+                                            <li>Stay home when feeling unwell</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline-secondary" onclick="openChatbotForAdvice()">
+                                <i class="fas fa-robot me-2"></i>Get Personalized Advice
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Donation CTA -->
+    <section class="py-5 bg-danger text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold mb-3">Join Our Blood Donor Network</h2>
+                    <p class="lead mb-4">Your donation can save lives. Register as a blood donor and help those in need.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="chatbot.html" class="btn btn-light btn-lg px-4">
+                            <i class="fas fa-tint me-2"></i>Become a Donor</a>
+                        <a href="chatbot.html" class="btn btn-outline-light btn-lg px-4 feature-btn" data-feature="blood">
+                            <i class="fas fa-hand-holding-medical me-2"></i>Request Blood
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="mb-4">
+                        <i class="fas fa-heartbeat me-2"></i>MediCare AI
+                    </h5>
+                    <p>Your intelligent health companion providing AI-powered healthcare solutions, medicine delivery, and personalized health recommendations.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">Home</a></li>
+                        <li class="mb-2"><a href="products.html" class="text-white">Medicines</a></li>
+                        <li class="mb-2"><a href="health-companion.html" class="text-white">Health AI</a></li>
+                        <li class="mb-2"><a href="blood-donation.html" class="text-white">Blood Donation</a></li>
+                        <li><a href="contact.html" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="medicine-recommender.html" class="text-white">Medicine Recommender</a></li>
+                        <li class="mb-2"><a href="disease-predictor.html" class="text-white">Disease Predictor</a></li>
+                        <li class="mb-2"><a href="fall-detection.html" class="text-white">Fall Detection</a></li>
+                        <li class="mb-2"><a href="mental-health.html" class="text-white">Mental Health Companion</a></li>
+                        <li><a href="emergency.html" class="text-white">Emergency Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i> 123 Health St, MedCity
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone-alt me-2"></i> (123) 456-7890
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2"></i> info@medicareai.com
+                        </li>
+                        <li>
+                            <i class="fas fa-clock me-2"></i> 24/7 Emergency Support
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 MediCare AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-white me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Button (Fixed) -->
+    
+           
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="static/js/main.js"></script>
+    <script>
+        // Voice command functionality
+        function startVoiceCommand() {
+            if ('webkitSpeechRecognition' in window) {
+                const recognition = new webkitSpeechRecognition();
+                recognition.lang = 'en-US';
+                recognition.interimResults = false;
+                
+                recognition.onstart = function() {
+                    document.getElementById('voice-command-btn').innerHTML = '<i class="fas fa-microphone-slash"></i>';
+                    document.getElementById('voice-command-btn').classList.remove('btn-light');
+                    document.getElementById('voice-command-btn').classList.add('btn-danger');
+                };
+                
+                recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript.toLowerCase();
+                    processVoiceCommand(transcript);
+                };
+                
+                recognition.onerror = function(event) {
+                    alert('Voice recognition error: ' + event.error);
+                };
+                
+                recognition.onend = function() {
+                    document.getElementById('voice-command-btn').innerHTML = '<i class="fas fa-microphone"></i>';
+                    document.getElementById('voice-command-btn').classList.remove('btn-danger');
+                    document.getElementById('voice-command-btn').classList.add('btn-light');
+                };
+                
+                recognition.start();
+            } else {
+                alert('Voice recognition is not supported in your browser.');
+            }
+        }
+        
+        function processVoiceCommand(command) {
+            console.log('Voice command:', command);
+            
+            if (command.includes('home')) {
+                window.location.href = '/';
+            } else if (command.includes('medicine') || command.includes('drug')) {
+                window.location.href = 'products.html';
+            } else if (command.includes('chat') || command.includes('assistant')) {
+                openChatbot();
+            } else if (command.includes('health') || command.includes('dashboard')) {
+                window.location.href = 'dashboard.html';
+            } else if (command.includes('blood') || command.includes('donate')) {
+                window.location.href = 'blood-donation.html';
+            } else if (command.includes('emergency') || command.includes('help')) {
+                emergencyCall();
+            } else if (command.includes('cart') || command.includes('basket')) {
+                window.location.href = 'cart.html';
+            } else {
+                alert(`You said: "${command}". Please try a different command.`);
+            }
+        }
+        
+        function openChatbot() {
+            // In a real implementation, this would open the chatbot interface
+            alert('Opening Health AI Companion. Ask me about medicines, symptoms, or health advice.');
+        }
+        
+        function activateFallDetection() {
+            if (confirm('Activate fall detection? This will use your device motion sensors.')) {
+                alert('Fall detection activated. Your emergency contacts will be notified if a fall is detected.');
+            }
+        }
+        
+        function findHospitals() {
+            if (navigator.geolocation) {
+                alert('Finding nearby hospitals...');
+                // In a real implementation, this would use geolocation
+            } else {
+                alert('Geolocation is not supported by your browser.');
+            }
+        }
+        
+        function emergencyCall() {
+            if (confirm('Are you sure you want to call emergency services?')) {
+                alert('Calling emergency services...');
+                // In a real implementation, this would initiate a phone call
+            }
+        }
+        
+        function viewOutbreakDetails() {
+            alert('Showing disease outbreak map for your region...');
+        }
+        
+        function openChatbotForAdvice() {
+            openChatbot();
+        }
+    </script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/05/07/19/20250507191600-84E1H5K2.js"></script>
+<script>
+    window.botpress.on("webchat:ready", () => {
+      window.botpress.open();
+    });
+    window.botpress.init({
+    "botId": "7a09cb71-284f-4a2d-8b88-fe970228ce71",
+    "configuration": {
+      "website": {},
+      "email": {},
+      "phone": {},
+      "termsOfService": {},
+      "privacyPolicy": {},
+      "color": "#5eb1ef",
+      "variant": "soft",
+      "themeMode": "light",
+      "fontFamily": "inter",
+      "radius": 1
+    },
+    "clientId": "73084785-a99f-43a8-8020-eaee647aefbd",
+    "selector": "#webchat"
+  });
+  </script>
+</body>
+</html>
